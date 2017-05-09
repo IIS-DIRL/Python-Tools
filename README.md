@@ -5,6 +5,7 @@
 keras related functions or tools  
 > /callbacks
 >> evaluation.py
+>> logger.py
 
 #### misc  
 misc functions ...  
