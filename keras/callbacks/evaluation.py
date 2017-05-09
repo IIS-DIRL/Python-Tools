@@ -3,6 +3,7 @@ import keras
 from keras.callbacks import ModelCheckpoint
 from keras.callbacks import Callback
 
+from sklearn.metrics import roc_auc_score
 from sklearn.metrics import f1_score
 
 """
@@ -72,6 +73,6 @@ class f1sc(Callback):
     def on_epoch_end(self, epoch, logs = {}):
         logs = logs or {}
         y_pred = self.model.predict(self.validation_data[0])
-        logs["val_f1sc"] = roc_auc_score(self.validation_data[1], y_pred)
+        logs["val_f1sc"] = f1_score(self.validation_data[1], y_pred)
 
         
