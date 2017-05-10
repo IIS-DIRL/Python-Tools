@@ -1,10 +1,9 @@
 # Python-Tools-keras
 ### Python keras useful functions
 
-#### keras_callback.py
+#### keras/callbacks_evaluation.py
 add evaluate f1sc, AUC, pearsonR, and other metric in the callback manner  
-- Usage:  
-	model.fit(..., callbacks = [PeasonR(), ...] )
-		
+- Usage:
+  model.fit(..., callbacks = [PeasonR(), ...] )
 
 #### 
