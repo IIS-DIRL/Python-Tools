@@ -5,8 +5,8 @@
 `get_component_by(threshold, nth, by)`
 
 **threshold** is a label matrix which defined background as 0 and object as 1
-```
-sample:
+```python
+# sample
 
 image = cv2.imread('sample.png')
 image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
