@@ -6,11 +6,12 @@ def all_ndarray_to_list(f):
 
     for k,v in f.items():
         if isinstance(v, dict):
-            v = all_to_list(v)
+            f.update({k: all_to_list(v)})
         elif isinstance(v, np.ndarray):
-            v = v.tolist()
+            f.update({k: v.tolist()})
         elif isinstance(v, tuple):
             v = tuple(i.tolist() if isinstance(i, np.ndarray) else i for i in v)
+            f.update({k: v})
         else:
             print('Not support {} in the type of {}'.format(k, type(v)))
 
