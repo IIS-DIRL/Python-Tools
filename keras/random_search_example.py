@@ -9,6 +9,43 @@ Example code for randomSearch with Keras model
 
 """
 
+# other basic libraries
+from PIL import Image
+import skimage.io as skio
+import cv2
+import glob
+import numpy as np
+import scipy as sp
+import scipy.stats 
+import pandas as pd
+import os
+import sys
+import re
+from scipy.stats import percentileofscore
+from sklearn.model_selection import train_test_split
+from sklearn.utils import shuffle
+# basic libraries
+from __future__ import print_function
+import random
+import matplotlib.pyplot as plt
+
+
+# main requires libraries
+import keras
+from keras.models import Sequential, Model
+from keras.layers import Dense, Dropout, Activation, Flatten, Input
+from keras.layers import Convolution2D, MaxPooling2D, Conv2D, BatchNormalization
+from keras.utils import np_utils
+from keras import backend as K
+from keras.optimizers import SGD, Adam, Adagrad
+from keras.regularizers import l1, l2
+from keras.preprocessing.image import ImageDataGenerator
+from keras.callbacks import Callback
+K.set_image_dim_ordering('tf')
+from keras.callbacks import ModelCheckpoint
+
+from hyperopt import fmin, tpe, hp, STATUS_OK, Trials
+
 ## Define search item and range
 space = {'choice': hp.choice('num_layers',
                              [{'c_layers': 'two', },
