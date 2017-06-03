@@ -73,6 +73,7 @@ class f1sc(Callback):
     def on_epoch_end(self, epoch, logs = {}):
         logs = logs or {}
         y_pred = self.model.predict(self.validation_data[0])
-        logs["val_f1sc"] = f1_score(self.validation_data[1], y_pred)
+        logs["val_f1sc"] = f1_score(self.validation_data[1].argmax(axis=1), 
+                                    y_pred.argmax(axis=1))
 
         
