@@ -16,3 +16,21 @@ def all_ndarray_to_list(f):
             print('Not support {} in the type of {}'.format(k, type(v)))
 
     return f
+
+def coordinate_to_contour(coor):
+    '''
+    coor = (array(coor_y, ...), array(coor_x, ...))
+    cnt = [
+        [[coor_x1, coor_y1]],
+        [[coor_x2, coor_y2]],
+        ...
+    ]
+    cnt.shape = (len(coor[0]), 1, 2)
+    '''
+    cnt = list(contour)
+    cnt.reverse()
+    cnt = np.array(cnt)
+    cnt = cnt.transpose()
+    cnt = cnt.reshape((cnt.shape[0], 1, 2))
+    cnt = cnt.astype('int32')
+    return cnt
